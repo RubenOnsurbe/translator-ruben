@@ -1,5 +1,5 @@
 import { Form } from 'react-bootstrap';
-
+import React from 'react';
 
 interface TextAreaProps {
     loading?: boolean;
@@ -7,15 +7,17 @@ interface TextAreaProps {
     value: string;
     onChange: (value: string) => void;
 }
-const commonStyle = {
+
+const commonStyle: React.CSSProperties = {
     border: 0,
     height: '200px',
-    resize: 'none',
-}
-
+    resize: 'none' as 'none', // Cast resize value to a compatible type
+};
 
 export const TextArea = ({ loading, type, value, onChange }: TextAreaProps) => {
-    const style = type === "from" ? commonStyle : { ...commonStyle, backgroundColor: '#f5f5f5' }
+    const style: React.CSSProperties = type === "from"
+        ? commonStyle
+        : { ...commonStyle, backgroundColor: '#f5f5f5' };
 
     const getPlaceholder = ({ type, loading }: { type: string, loading?: boolean }) => {
         if (type === 'from') return 'Texto a traducir';
@@ -37,6 +39,5 @@ export const TextArea = ({ loading, type, value, onChange }: TextAreaProps) => {
             value={value}
             onChange={handleChange}
         />
-    )
+    );
 }
-
