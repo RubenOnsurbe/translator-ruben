@@ -15,6 +15,8 @@ function App() {
 
     translate({ fromLanguage, toLanguage, text: fromText })
       .then(result => {
+        if (result == null) return;
+        console.log(result);
         setResult(result);
       })
       .catch(console.error);

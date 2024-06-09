@@ -1,3 +1,4 @@
+// depl.d.ts
 declare module 'depl' {
     interface DeplConfig {
         apiKey: string;
@@ -6,7 +7,7 @@ declare module 'depl' {
 
     class Depl {
         constructor(config: DeplConfig);
-        translate({ text, source_lang, target_lang }: { text: string; source_lang: string; target_lang: string }): Promise<{ translation: string }>;
+        translate(params: { text: string; source_lang: string; target_lang: string }): Promise<{ translation: string }>;
     }
 
     export = Depl;

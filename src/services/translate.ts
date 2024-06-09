@@ -1,9 +1,8 @@
-import Depl from 'depl';
 import { SUPORTED_LANGUAGES } from '../constants';
 import { FromLanguage, Language } from '../types';
 
 const apiKey = '7c8b4730-cf7c-40a6-85b4-c48108b4ff6a:fx';
-const apiUrl = 'https://api.depl.io/v1';
+const apiUrl = 'https://api.deepl.com/v2';
 
 const client = new Depl({
     apiKey: apiKey,
