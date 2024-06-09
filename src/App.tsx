@@ -2,8 +2,8 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
 import { useStore } from './hooks/useStore'
-import { AUTO_LANGUAGE } from './constants'
-import { ArrowsIcon } from './icons'
+import { AUTO_LANGUAGE, VOICE_LANGUAGES } from './constants'
+import { ArrowsIcon, CopyIcon, SoundIcon } from './icons'
 import { LanguageSelector } from './components/LanguageSelector'
 import { TextArea } from './components/TextArea'
 import { useEffect } from 'react'
@@ -25,6 +25,20 @@ function App() {
       })
       .catch(console.error);
   }, [debouncedFromText, fromLanguage, toLanguage]);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(result).catch(() => { })
+  }
+
+  const handleVoice = () => {
+    const utterance = new SpeechSynthesisUtterance(result);
+    console.log(VOICE_LANGUAGES[toLanguage]);
+    utterance.lang = VOICE_LANGUAGES[toLanguage];
+    utterance.volume = 0.5;
+    utterance.rate = 0.75;
+    speechSynthesis.speak(utterance);
+  }
+
   return (
     <Container fluid>
       <h1>Translator Ruben</h1>
@@ -41,7 +55,17 @@ function App() {
         <Col>
           <Stack gap={2}>
             <LanguageSelector type='to' value={toLanguage} onChange={setToLanguage} />
-            <TextArea loading={loading} type='to' value={result} onChange={setResult} />
+            <div style={{ position: 'relative' }}>
+              <TextArea loading={loading} type='to' value={result} onChange={setResult} />
+              <div style={{ position: 'absolute', left: 0, bottom: 0, display: 'flex' }}>
+                <Button variant='link' onClick={handleCopy}>
+                  <CopyIcon />
+                </Button>
+                <Button variant='link' onClick={handleVoice}>
+                  <SoundIcon />
+                </Button>
+              </div>
+            </div>
           </Stack>
         </Col>
       </Row>

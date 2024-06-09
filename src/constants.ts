@@ -28,4 +28,34 @@ export const SUPORTED_LANGUAGES = {
     bg: 'Búlgaro',
 };
 
+export const VOICE_LANGUAGES = {
+    en: 'en-GB',
+    es: 'es-ES',
+    fr: 'fr-FR',
+    de: 'de-DE',
+    it: 'it-IT',
+    nl: 'nl-NL',
+    pl: 'pl-PL',
+    pt: 'pt-PT',
+    ru: 'ru-RU',
+    ja: 'ja-JP',
+    zh: 'zh-CN',
+    ar: 'ar-SA',
+    tr: 'tr-TR',
+    uk: 'uk-UA',
+    ro: 'ro-RO',
+    nb: 'nb-NO',
+    lv: 'lv-LV',
+    lt: 'lt-LT',
+    ko: 'ko-KR',
+    id: 'id-ID',
+    hu: 'hu-HU',
+    fi: 'fi-FI',
+    et: 'et-EE',
+    el: 'el-GR',
+    da: 'da-DK',
+    cs: 'cs-CZ',
+    bg: 'bg-BG',
+};
+
 export const AUTO_LANGUAGE = 'auto';
