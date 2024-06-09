@@ -1,6 +1,6 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, Button, Form, Stack } from 'react-bootstrap'
+import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
 import { useStore } from './hooks/useStore'
 import { AUTO_LANGUAGE } from './constants'
 import { ArrowsIcon } from './icons'
@@ -16,7 +16,6 @@ function App() {
     translate({ fromLanguage, toLanguage, text: fromText })
       .then(result => {
         if (result == null) return;
-        console.log(result);
         setResult(result);
       })
       .catch(console.error);

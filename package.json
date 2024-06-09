@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "deepl": "^1.0.13",
+    "deepl-node": "^1.13.0",
     "depl": "^1.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
