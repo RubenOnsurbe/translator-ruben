@@ -40,19 +40,19 @@ function App() {
   }
 
   return (
-    <Container fluid>
-      <h1>Translator Ruben</h1>
-      <Row>
-        <Col >
+    <Container fluid className="p-3">
+      <h1 className="text-center mb-4">Translator Ruben</h1>
+      <Row className="justify-content-center">
+        <Col xs={12} md={5} className="mb-3 mb-md-0">
           <Stack gap={2}>
             <LanguageSelector type='from' value={fromLanguage} onChange={setFromLanguage} />
             <TextArea loading={loading} type='from' value={fromText} onChange={setFromText} />
           </Stack>
         </Col>
-        <Col xs='auto'>
+        <Col xs='auto' className="d-flex align-items-center mb-3 mb-md-0">
           <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguages}><ArrowsIcon /></Button>
         </Col>
-        <Col>
+        <Col xs={12} md={5}>
           <Stack gap={2}>
             <LanguageSelector type='to' value={toLanguage} onChange={setToLanguage} />
             <div style={{ position: 'relative' }}>
