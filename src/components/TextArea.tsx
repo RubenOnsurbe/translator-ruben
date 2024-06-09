@@ -11,7 +11,7 @@ interface TextAreaProps {
 const commonStyle: React.CSSProperties = {
     border: 0,
     height: '200px',
-    resize: 'none' as 'none', // Cast resize value to a compatible type
+    resize: 'none' as 'none',
 };
 
 export const TextArea = ({ loading, type, value, onChange }: TextAreaProps) => {
@@ -19,10 +19,15 @@ export const TextArea = ({ loading, type, value, onChange }: TextAreaProps) => {
         ? commonStyle
         : { ...commonStyle, backgroundColor: '#f5f5f5' };
 
-    const getPlaceholder = ({ type, loading }: { type: string, loading?: boolean }) => {
+    const getPlaceholder = (type: string, value: string, loading?: boolean) => {
         if (type === 'from') return 'Texto a traducir';
-        if (loading === true) return 'Traduciendo...';
-        if (type === 'to' && loading === false) return 'Texto traducido';
+        if (type === 'to') {
+            if (loading) {
+                return 'Traduciendo...';
+            } if (!loading) {
+                return 'Traducción';
+            }
+        }
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -35,7 +40,7 @@ export const TextArea = ({ loading, type, value, onChange }: TextAreaProps) => {
             disabled={type === "to"}
             autoFocus={type === "from"}
             style={style}
-            placeholder={getPlaceholder({ type, loading })}
+            placeholder={getPlaceholder(type, value, loading)}
             value={value}
             onChange={handleChange}
         />

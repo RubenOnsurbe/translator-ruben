@@ -19,7 +19,7 @@ function App() {
         setResult(result);
       })
       .catch(console.error);
-  }, [fromText]);
+  }, [fromText, fromLanguage, toLanguage]);
   return (
     <Container fluid>
       <h1>Translator Ruben</h1>

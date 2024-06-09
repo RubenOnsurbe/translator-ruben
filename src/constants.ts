@@ -10,6 +10,22 @@ export const SUPORTED_LANGUAGES = {
     ru: 'Ruso',
     ja: 'Japonés',
     zh: 'Chino',
+    ar: 'Árabe',
+    tr: 'Turco',
+    uk: 'Ucraniano',
+    ro: 'Rumano',
+    nb: 'Noruego',
+    lv: 'Letón',
+    lt: 'Lituano',
+    ko: 'Coreano',
+    id: 'Indonesio',
+    hu: 'Húngaro',
+    fi: 'Finlandés',
+    et: 'Estonio',
+    el: 'Griego',
+    da: 'Danés',
+    cs: 'Checo',
+    bg: 'Búlgaro',
 };
 
 export const AUTO_LANGUAGE = 'auto';
