@@ -19,7 +19,7 @@ export const TextArea = ({ loading, type, value, onChange }: TextAreaProps) => {
         ? commonStyle
         : { ...commonStyle, backgroundColor: '#f6f6f6' };
 
-    const getPlaceholder = (type: string, value: string, loading?: boolean) => {
+    const getPlaceholder = (type: string, loading?: boolean) => {
         if (type === 'from') return 'Texto a traducir';
         if (type === 'to') {
             if (loading) {
@@ -40,7 +40,7 @@ export const TextArea = ({ loading, type, value, onChange }: TextAreaProps) => {
             disabled={type === "to"}
             autoFocus={type === "from"}
             style={style}
-            placeholder={getPlaceholder(type, value, loading)}
+            placeholder={getPlaceholder(type, loading)}
             value={value}
             onChange={handleChange}
         />

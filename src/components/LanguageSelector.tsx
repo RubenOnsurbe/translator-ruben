@@ -1,12 +1,12 @@
 import { Form } from "react-bootstrap";
-import { AUTO_LANGUAGE, SUPORTED_LANGUAGES } from "../constants";
+import { SUPORTED_LANGUAGES } from "../constants";
 import { FromLanguage, type Language } from "../types.d";
 
 type LanguageSelectorProps =
     | { type: 'from', value: FromLanguage, onChange: (language: FromLanguage) => void }
     | { type: 'to', value: Language, onChange: (language: Language) => void };
 
-export const LanguageSelector = ({ onChange, type, value }: LanguageSelectorProps) => {
+export const LanguageSelector = ({ onChange, value }: LanguageSelectorProps) => {
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         onChange(event.target.value as Language);
     }
