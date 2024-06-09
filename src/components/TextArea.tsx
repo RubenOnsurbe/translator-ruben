@@ -17,7 +17,7 @@ const commonStyle: React.CSSProperties = {
 export const TextArea = ({ loading, type, value, onChange }: TextAreaProps) => {
     const style: React.CSSProperties = type === "from"
         ? commonStyle
-        : { ...commonStyle, backgroundColor: '#f5f5f5' };
+        : { ...commonStyle, backgroundColor: '#f6f6f6' };
 
     const getPlaceholder = (type: string, value: string, loading?: boolean) => {
         if (type === 'from') return 'Texto a traducir';

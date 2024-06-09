@@ -8,18 +8,23 @@ import { LanguageSelector } from './components/LanguageSelector'
 import { TextArea } from './components/TextArea'
 import { useEffect } from 'react'
 import { translate } from './services/translate'
+import { useDebounce } from './hooks/useDebounce'
+
 function App() {
   const { loading, fromLanguage, fromText, toLanguage, result, interchangeLanguages, setFromLanguage, setToLanguage, setFromText, setResult } = useStore()
-  useEffect(() => {
-    if (fromText === '') return;
 
-    translate({ fromLanguage, toLanguage, text: fromText })
+  const debouncedFromText = useDebounce(fromText, 300)
+
+  useEffect(() => {
+    if (debouncedFromText === '') return;
+
+    translate({ fromLanguage, toLanguage, text: debouncedFromText })
       .then(result => {
         if (result == null) return;
         setResult(result);
       })
       .catch(console.error);
-  }, [fromText, fromLanguage, toLanguage]);
+  }, [debouncedFromText, fromLanguage, toLanguage]);
   return (
     <Container fluid>
       <h1>Translator Ruben</h1>
