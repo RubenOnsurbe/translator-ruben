@@ -69,7 +69,11 @@ function App() {
           </Stack>
         </Col>
       </Row>
+      <footer className="text-center mt-4" style={{ position: 'absolute', bottom: 0, left: 0, right: 0 }}>
+        <p>© {new Date().getFullYear()} Ruben™. Todos los derechos reservados.</p>
+      </footer>
     </Container>
+
   )
 }
 
