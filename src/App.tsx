@@ -41,7 +41,7 @@ function App() {
 
   return (
     <Container fluid className="p-3">
-      <h1 className="text-center mb-4">Translator Ruben</h1>
+      <h1 className="text-center mb-4">Traductor Ruben</h1>
       <Row className="justify-content-center">
         <Col xs={12} md={5} className="mb-3 mb-md-0">
           <Stack gap={2}>
